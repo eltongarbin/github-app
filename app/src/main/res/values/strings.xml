@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">GitHub</string>
+    <string name="owner_logo_hint">Repository Logo</string>
+    <string name="status_image_hint">loading</string>
+    <string name="language_color_hint">Language Color</string>
+</resources>
