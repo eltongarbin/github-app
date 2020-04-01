@@ -3,4 +3,5 @@
     <string name="owner_logo_hint">Repository Logo</string>
     <string name="status_image_hint">loading</string>
     <string name="language_color_hint">Language Color</string>
+    <string name="star_img_hint">Star Image</string>
 </resources>

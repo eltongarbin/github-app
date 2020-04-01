@@ -30,7 +30,9 @@ fun GitHubRepositoryContainer.asDomainModel(): List<GitHubRepository> {
             name = it.name,
             description = it.description,
             owner = it.owner.login,
-            imgSrcUrl = it.owner.avatarUrl
+            imgSrcUrl = it.owner.avatarUrl,
+            language = it.language,
+            starCounter = it.starCounter
         )
     }
 }

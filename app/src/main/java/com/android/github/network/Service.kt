@@ -16,7 +16,7 @@ interface GitHubService {
      * The @GET annotation indicates that the "search/repositories" endpoint will be requested with the GET
      * HTTP method
      */
-    @GET("search/repositories?q=stars:>=100000&sort=stars&order=desc")
+    @GET("search/repositories?q=stars:>=10000&sort=stars&order=desc")
     fun getRepositories():
     // The Coroutine Call Adapter allows us to return a Deferred, a Job with a result
             Deferred<GitHubRepositoryContainer>

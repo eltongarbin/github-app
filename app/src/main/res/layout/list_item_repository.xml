@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/owner_logo"
+            android:id="@+id/owner_img"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginStart="16dp"
@@ -27,20 +27,20 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/repository_owner"
+            android:id="@+id/owner_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:text="@{repository.owner}"
-            app:layout_constraintBottom_toBottomOf="@+id/owner_logo"
+            app:layout_constraintBottom_toBottomOf="@+id/owner_img"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/owner_logo"
-            app:layout_constraintTop_toTopOf="@+id/owner_logo"
+            app:layout_constraintStart_toEndOf="@+id/owner_img"
+            app:layout_constraintTop_toTopOf="@+id/owner_img"
             tools:text="facebook" />
 
         <TextView
-            android:id="@+id/repository_name"
+            android:id="@+id/name_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -50,51 +50,63 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/owner_logo"
+            app:layout_constraintTop_toBottomOf="@+id/owner_img"
             tools:text="React" />
 
         <TextView
-            android:id="@+id/repository_description"
-            android:layout_width="match_parent"
+            android:id="@+id/description_text"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:text="@{repository.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/repository_name"
+            app:layout_constraintTop_toBottomOf="@id/name_text"
             tools:text="A declarative, efficient, and flexible Javascript library for buinding user interfaces." />
-
-        <ImageView
-            android:id="@+id/language_img"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:contentDescription="@string/language_color_hint"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/repository_description"
-            app:srcCompat="@drawable/ic_language" />
 
         <TextView
             android:id="@+id/language_text"
             android:layout_width="wrap_content"
             android:layout_height="19dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@id/language_img"
-            app:layout_constraintTop_toBottomOf="@+id/repository_description"
+            android:layout_marginTop="16dp"
+            android:text="@{repository.language}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_text"
             tools:text="JavaScript" />
+
+        <ImageView
+            android:id="@+id/star_img"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/star_img_hint"
+            app:layout_constraintBottom_toBottomOf="@+id/star_counter_text"
+            app:layout_constraintEnd_toStartOf="@+id/star_counter_text"
+            app:layout_constraintTop_toTopOf="@+id/star_counter_text"
+            app:srcCompat="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/star_counter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{String.valueOf(repository.starCounter)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_text"
+            tools:text="144,942" />
 
         <View
             android:id="@+id/divider"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/language_img" />
+            app:layout_constraintTop_toBottomOf="@+id/star_counter_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

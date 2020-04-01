@@ -16,5 +16,7 @@ data class GitHubRepository(
     val name: String,
     val owner: String,
     val description: String?,
-    val imgSrcUrl: String?
+    val imgSrcUrl: String?,
+    val language: String?,
+    val starCounter: Long
 ) : Parcelable
