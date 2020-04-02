@@ -16,15 +16,27 @@
         android:padding="16dp"
         tools:context=".DetailFragment">
 
-        <TextView
-            android:id="@+id/repo_owner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@{viewModel.selectedRepository.owner}"
-            app:layout_constraintEnd_toEndOf="parent"
+        <ImageView
+            android:id="@+id/owner_img"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/owner_logo_hint"
+            app:imageUrl="@{viewModel.selectedRepository.imgSrcUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/owner_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{viewModel.selectedRepository.owner}"
+            app:layout_constraintBottom_toBottomOf="@+id/owner_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/owner_img"
+            app:layout_constraintTop_toTopOf="@+id/owner_img"
             tools:text="facebook" />
 
         <TextView
@@ -33,11 +45,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@{viewModel.selectedRepository.name}"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/repo_owner"
-            tools:text="React" />
+            app:layout_constraintTop_toBottomOf="@+id/owner_text"
+            tools:text="react" />
 
         <TextView
             android:id="@+id/repo_description"
@@ -49,5 +62,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/repo_name"
             tools:text="A declarative, eficient, and flexible JavaScript library for building user interfaces." />
+
+        <ImageView
+            android:id="@+id/star_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/star_img_hint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/repo_description"
+            app:srcCompat="@drawable/ic_star_border" />
+
+        <TextView
+            android:id="@+id/star_counter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{viewModel.displayStarCounter}"
+            app:layout_constraintBottom_toBottomOf="@+id/star_img"
+            app:layout_constraintStart_toEndOf="@+id/star_img"
+            app:layout_constraintTop_toTopOf="@+id/star_img"
+            tools:text="146,161 stars" />
+
+
+        <ImageView
+            android:id="@+id/fork_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/star_img_hint"
+            app:layout_constraintStart_toEndOf="@+id/star_counter_text"
+            app:layout_constraintTop_toBottomOf="@+id/repo_description"
+            app:srcCompat="@drawable/ic_source_fork" />
+
+        <TextView
+            android:id="@+id/fork_counter_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{viewModel.displayForkCounter}"
+            app:layout_constraintBottom_toBottomOf="@+id/star_img"
+            app:layout_constraintStart_toEndOf="@+id/fork_img"
+            app:layout_constraintTop_toTopOf="@+id/star_img"
+            tools:text="28,204 forks" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

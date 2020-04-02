@@ -14,6 +14,7 @@ data class RepositoryDTO(
     val owner: OwnerDTO,
     val description: String?,
     @Json(name = "stargazers_count") val starCounter: Long,
+    @Json(name = "forks_count") val forkCounter: Long,
     val language: String?
 )
 
@@ -32,7 +33,8 @@ fun GitHubRepositoryContainer.asDomainModel(): List<GitHubRepository> {
             owner = it.owner.login,
             imgSrcUrl = it.owner.avatarUrl,
             language = it.language,
-            starCounter = it.starCounter
+            starCounter = it.starCounter,
+            forkCounter = it.forkCounter
         )
     }
 }
